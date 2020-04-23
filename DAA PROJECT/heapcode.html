@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {padding-top:50px ;  margin-top: auto; margin-left: 30px;}
+    h1 {text-align: center;}
+    </style>
+  </head>
+  <body>
+    <h1>HEAP SORT
+      <div class="">
+        <button onclick="location.href='home.html'">Go to Home Page</button> <br /><br />
+      </div></h1>
+      #include &lt;stdio.h&gt<br /> <br>
+  using namespace std; <br>
+
+void heapify(int arr[], int n, int i) <br>
+{ <br>
+    int max = i; <br>
+    int l = 2*i + 1; <br>
+    int r = 2*i + 2; <br>
+    if (l < n && arr[l] > arr[max]) <br>
+        max = l; <br>
+    if (r < n && arr[r] > arr[max]) <br>
+        max = r; <br>
+    if (max != i)
+    { <br>
+        swap(arr[i], arr[max]); <br>
+        heapify(arr, n, max); <br>
+    }
+} <br>
+
+void heapSort(int arr[], int n)
+{ <br>
+    for (int i = (n / 2) - 1; i >= 0; i--) <br>
+        heapify(arr, n, i); <br>
+
+    for (int i=n-1; i>=0; i--)
+    { <br>
+        swap(arr[0], arr[i]);<br>
+        heapify(arr, i, 0); <br>
+    }
+} <br>
+
+
+int main() <br>
+{ <br>
+    int arr[10],n;<br>
+    cout<<"Enter size of array\n";<br>
+    cin>>n;<br>
+    for(int i=0;i<n;i++)<br>
+    cin>>arr[i];<br>
+
+    heapSort(arr, n); <br>
+
+    cout << "Sorted array is \n"; <br>
+    for (int i=0; i<n; ++i) <br>
+        cout << arr[i] << " "; <br>
+} <br>
+  </body>
+</html>

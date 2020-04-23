@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {padding-top:50px ;  margin-top: auto; margin-left: 30px;}
+    h1 {text-align: center;}
+    </style>
+  </head>
+  <body>
+    <h1>INSERTION SORT
+      <div class="">
+        <button onclick="location.href='home.html'">Go to home page</button> <br /><br />
+      </div></h1>
+    #include &lt;stdio.h&gt<br />
+    using namespace std;<br />
+
+    void insertionSort(int A[],int n)<br />
+    {<br />
+    	for(int i=1;i<n;i++)<br />
+    	{<br />
+    		int j=i-1;<br />
+    		int key=A[i];<br />
+    		while(j>=0 && A[j]>key)<br />
+    		{<br />
+    			A[j+1]=A[j];<br />
+    			j--;<br />
+    		}<br />
+    		A[j+1]=key;<br />
+    	}<br />
+    }<br />
+
+    int main()<br />
+    {<br />
+    	int n;<br />
+    	cout<<"Enter number of elements\n";<br />
+    	cin>>n;<br />
+    	int A[n];<br />
+
+    	cout<<"Enter elements one one\n";<br />
+    	for(int i=0;i<n;i++)<br />
+    	{<br />
+    		cin>>A[i];<br />
+    	}
+<br />
+
+    	insertionSort(A,n);<br />
+    	cout<<"Sorted Array  is\n";<br />
+    		for(int i=0;i< n ;i++)<br />
+    	{<br />
+    		cout<< A[i]<<" ";<br />
+    	}<br />
+    }<br />
+
+
+  </body>
+</html>

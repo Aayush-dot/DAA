@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>BUBBLE</title>
+<style>
+body {padding-top:50px ; text-align: center;; margin-top: auto;}
+</style>
+</head>
+<body>
+  <h1>HEAP SORT</h1>
+  <button onclick="location.href='heapcode.html'">See Heap sort c++ code</button> <br /><br />
+  <button onclick="location.href='home.html'">Go to Home Page</button> <br /><br />
+<input type="text" id="text1"></input>
+<input type="button" id="button1" value="ADD" onclick="add_element_to_array(); disp()"></input>
+<input type="button" id="button2" value="SORT" onclick="display_array();"><br /><br />
+  <button onclick="location.href='heap.html'">RESET</button><br />
+<div id="Temp">
+
+</div>
+<div id="Result"></div>
+
+
+
+
+<script type="text/javascript">
+
+      var x = 0;
+    var array = Array();
+
+    function add_element_to_array()
+    {
+     array[x] = parseInt(document.getElementById("text1").value);
+     // alert("Element: " + array[x] + " Added at index " + x);
+     x++;
+     document.getElementById("text1").value = "";
+    }
+
+  function disp(){
+    var t="<hr/>";
+  for(var i=0;i<array.length;i++){
+     t += "Element " + i + " = " + array[i] + "<br/>";
+  }
+  document.getElementById("Temp").innerHTML = t;
+  }
+
+
+  var array_length;
+/* to create MAX  array */
+function heap_root(input, i) {
+    var left = 2 * i + 1;
+    var right = 2 * i + 2;
+    var max = i;
+
+    if (left < array_length && input[left] > input[max]) {
+        max = left;
+    }
+
+    if (right < array_length && input[right] > input[max])     {
+        max = right;
+    }
+
+    if (max != i) {
+        swap(input, i, max);
+        heap_root(input, max);
+    }
+}
+
+function swap(input, index_A, index_B) {
+    var temp = input[index_A];
+
+    input[index_A] = input[index_B];
+    input[index_B] = temp;
+}
+
+
+    function display_array()
+    {
+       var e = "<hr/>";
+
+       array_length = array.length;
+
+       for (var i = Math.floor(array_length / 2); i >= 0; i -= 1)      {
+           heap_root(array, i);
+         }
+
+       for (i = array.length - 1; i > 0; i--) {
+           swap(array, 0, i);
+           array_length--;
+
+
+           heap_root(array, 0);
+       }
+       e+="SORTED BY HEAP SORT"+"<br />"
+       for (var y=0; y<array.length; y++)
+       {
+         e += "Element " + y + " = " + array[y] + "<br/>";
+       }
+       e+="TIME COMPLEXITY = O(Nlog(N))"+"<br/>";
+       document.getElementById("Result").innerHTML = e;
+    }
+    </script>
+  </body>
+</html>
