@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {padding-top:50px ;  margin-top: auto; margin-left: 30px;}
+    h1 {text-align: center;}
+
+    </style>
+  </head>
+  <body>
+      <h1>QUICK SORT
+        <div class="">
+          <button onclick="location.href='home.html'">Go to Home Page</button> <br /><br />
+        </div></h1>
+  #include &lt;stdio.h&gt<br /><br><br />
+using namespace std;<br><br />
+int partition(int a[],int l,int u)
+{<br />
+    int k,i,j,temp;<br />
+    k=a[l];<br />
+    i=l;<br />
+    j=u+1;<br />
+
+    do
+    {<br />
+        do<br />
+            i++;<br />
+
+        while(a[i]<k&&i<=u);<br />
+
+        do<br />
+            j--;<br />
+        while(k<a[j]);<br />
+
+        if(i<j)
+        {<br />
+            temp=a[i];<br />
+            a[i]=a[j];<br />
+            a[j]=temp;
+        }<br />
+    }while(i<j);<br />
+
+    a[l]=a[j];<br />
+    a[j]=k;<br />
+
+    return(j);
+}<br />
+
+void quick_sort(int a[],int l,int u)
+{<br />
+    int j;<br />
+    if(l<u)<br />
+    {<br />
+        j=partition(a,l,u);<br />
+        quick_sort(a,l,j-1);<br />
+        quick_sort(a,j+1,u);
+    }
+}<br />
+
+
+
+
+int main()
+{<br />
+    int a[10],n,i;<br />
+    cout<<"Enter number of elements \n";<br />
+    cin>>n;<br />
+    cout<<"Enter elements:";<br />
+
+    for(i=0;i<n;i++)<br />
+        cin>>a[i];<br />
+
+    quick_sort(a,0,n-1);<br />
+    cout<<"Array after sorting:\n";<br />
+
+    for(i=0;i<n;i++)<br />
+        cout<<a[i]<<" ";<br />
+
+    return 0;
+}<br />
+
+
+  </body>
+</html>

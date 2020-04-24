@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {padding-top:50px ;  margin-top: auto; margin-left: 30px;}
+    h1 {text-align: center;}
+    </style>
+  </head>
+  <body>
+    <h1>BUBBLE SORT
+      <div class="">
+        <button onclick="location.href='home.html'">Go to Home Page</button> <br /><br />
+      </div>
+
+</h1>
+        #include &lt;stdio.h&gt<br /><br>
+      using namespace std;<br>
+
+    void bubblesort(int arr[],int i,int n){<br>
+  	for(int i=0;i<n-1;i++)<br>
+	 {<br>
+		for(int j=0;j<n-i-1;j++)<br>
+		{<br>
+			if(arr[j]>arr[j+1])<br>
+			swap(arr[j],arr[j+1]);<br>
+		}
+	}
+}<br>
+
+int main()<br>
+{<br>
+	int n;<br>
+	cout<<"Enter number of elements\n";<br>
+	cin>>n;<br>
+	int A[n];<br>
+	for(int i=0;i<n;i++)<br>
+	{<br>
+		cin>>A[i];
+	}<br>
+
+
+	bubbleSort(A,n);<br / >
+	cout<<"Sorted Array  is\n";<br / >
+		for(int i=0;i<n;i++)
+	{<br / >
+		cout<<A[i]<<" ";
+	}<br / >
+}<br / >
+
+  </body>
+</html>

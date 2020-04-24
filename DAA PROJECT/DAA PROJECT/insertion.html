@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>BUBBLE</title>
+<style>
+body {padding-top:50px ; text-align: center;; margin-top: auto;}
+</style>
+</head>
+<body>
+  <h1>INSERTION SORT</h1>
+  <button onclick="location.href='insertioncode.html'">See Insertion Sort C++ Code</button> <br /><br />
+    <button onclick="location.href='home.html'">Go to Home Page</button> <br /><br />
+<input type="text" id="text1"></input>
+<input type="button" id="button1" value="ADD" onclick="add_element_to_array(); disp()"></input>
+<input type="button" id="button2" value="SORT" onclick="display_array();"><br /><br />
+  <button onclick="location.href='insertion.html'">RESET</button><br />
+<div id="Temp">
+
+</div>
+<div id="Result"></div>
+
+
+
+
+<script type="text/javascript">
+
+      var x = 0;
+    var array = Array();
+
+    function add_element_to_array()
+    {
+     array[x] = parseInt(document.getElementById("text1").value);
+     // alert("Element: " + array[x] + " Added at index " + x);
+     x++;
+     document.getElementById("text1").value = "";
+    }
+
+  function disp(){
+    var t="<hr/>";
+  for(var i=0;i<array.length;i++){
+     t += "Element " + i + " = " + array[i] + "<br/>";
+  }
+  document.getElementById("Temp").innerHTML = t;
+  }
+
+
+
+
+    function display_array()
+    {
+       var e = "<hr/>";
+       let length = array.length;
+   for (let i = 1; i < length; i++) {
+       let key = array[i];
+       let j = i - 1;
+       while (j >= 0 && array[j] > key) {
+           array[j + 1] = array[j];
+           j = j - 1;
+       }
+       array[j + 1] = key;
+   }
+
+       e+="SORTED BY INSERTION SORT"+"<br />"
+       for (var y=0; y<array.length; y++)
+       {
+         e += "Element " + y + " = " + array[y] + "<br/>";
+       }
+       e+="TIME COMPLEXITY =   O(N^2))"+"<br/>";
+       document.getElementById("Result").innerHTML = e;
+    }
+    </script>
+  </body>
+</html>
